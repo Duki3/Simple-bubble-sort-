@@ -1,20 +1,12 @@
-use rand::{distributions::Standard, prelude::*};
+mod array_generator;
+
 fn main() {
-    let mut array = array_generator::<i8>();
+    let mut array = array_generator::array_generator::<u8>();
     bubbelsort(&mut array);
     for x in array {
         print!("{},", x);
     }
     println!();
-}
-
-fn array_generator<T>() -> Vec<T> 
-where Standard:Distribution<T>{
-    let mut buffer = Vec::new();
-    for _ in 0..random::<u8>() {
-        buffer.push(random::<T>());
-    }
-    buffer
 }
 
 fn bubbelsort<T>(array: &mut [T])
